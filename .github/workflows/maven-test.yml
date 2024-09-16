@@ -26,7 +26,7 @@ jobs:
         run: mvn clean install
 
       - name: Create Pull Request to master
-        if: startsWith(github.ref, 'refs/heads/feature/')  # Somente se for uma branch 'feature'
+        if: startsWith(github.ref, 'refs/heads/feature/')
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
