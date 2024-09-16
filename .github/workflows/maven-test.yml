@@ -25,5 +25,14 @@ jobs:
       - name: Build and test with Maven
         run: mvn clean install
 
-      - name: Run tests with Maven
-        run: mvn test
+      - name: Create Pull Request to master
+        if: startsWith(github.ref, 'refs/heads/feature/')  # Somente se for uma branch 'feature'
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          commit-message: "Auto PR from feature to master"
+          title: "Auto PR: Merging feature branch to master"
+          body: |
+            This PR is automatically created by GitHub Actions after successful build and tests.
+          labels: auto-pr
