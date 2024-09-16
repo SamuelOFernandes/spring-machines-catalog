@@ -1,4 +1,5 @@
 package com.product_project.machines_catalog.controller;
+
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
@@ -75,7 +76,7 @@ public class MachineControllerTest {
 
     @Test
     public void testCreateMachine_Success() {
-        // Simulando o BindingResult como válido (sem erros)
+
         when(bindingResult.hasErrors()).thenReturn(false);
         when(machineService.createMachine(any(MachineDTO.class))).thenReturn(machine);
 
@@ -86,7 +87,7 @@ public class MachineControllerTest {
 
     @Test
     public void testUpdateMachine_Success() {
-        // Simulando o BindingResult como válido (sem erros)
+
         when(bindingResult.hasErrors()).thenReturn(false);
         when(machineService.updateMachine(eq(1L), any(MachineDTO.class))).thenReturn(machine);
 
@@ -106,23 +107,19 @@ public class MachineControllerTest {
 
     @Test
     public void testCreateMachine_ValidationErrors() {
-        // Simulando que há erros de validação
+
         when(bindingResult.hasErrors()).thenReturn(true);
 
         ResponseEntity<?> response = machineController.createMachine(machineDTO, bindingResult);
-
-        // Deve retornar HTTP 400 Bad Request quando há erros de validação
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     }
 
     @Test
     public void testUpdateMachine_ValidationErrors() {
-        // Simulando que há erros de validação
+
         when(bindingResult.hasErrors()).thenReturn(true);
 
         ResponseEntity<?> response = machineController.updateMachine(1L, machineDTO, bindingResult);
-
-        // Deve retornar HTTP 400 Bad Request quando há erros de validação
         assertEquals(HttpStatus.BAD_REQUEST, response.getStatusCode());
     }
 
