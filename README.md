@@ -1,9 +1,11 @@
+**Introdução ao Projeto**
+
 O projeto tem como objetivo demonstar como caso de uso uma aplicação que cataloga maquinas de adquirentes de pagamentos. Os adquirentes de pagamento são responsáveis por processar as transações financeiras entre o pagador e a instituições financeiras e bandeiras de cartão. 
 
 A aruitetura base do projeto segue o desenho de solução abaixo, a ideia central além de prover uma api para gerenciar o catalogo de máquinas é realizar a comunicação assíncrona com um consumer através de uma fila em broker de mensagens RabbitMQ, quando eventos de cadastro de uma nova máquina da adquirente é cadastrada no catálogo.
 
+![Projeto Machines Catalog](https://github.com/user-attachments/assets/28fd5d97-301e-4776-b136-efc650f57250)
 
-![Projeto Machines Catalog](https://github.com/user-attachments/assets/0c229aac-fbca-4036-8645-9cb460dd4a96)
 
 
 Para executar o projeto é necessário realizar o clone do repositório no github através do comando **git clone https://github.com/SamuelOFernandes/spring-machines-catalog.git**, acessar a raiz do projeto, abrir o terminal e executar o comando **docker compose up --build**.
